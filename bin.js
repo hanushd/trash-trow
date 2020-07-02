@@ -1,11 +1,9 @@
 class bin {
-    constructor(x, y, width, height) {
+    constructor(x,y) {
       var options = {
-          'restitution':0.8,
-          'friction':1.0,
-          'density':1.0
+          isStatic:true
       }
-      this.body = Bodies.rectangle(700,555,20,70, options);      
+      this.body = Bodies.rectangle(x,y,20,70, options);      
       this.width = 20;
       this.height = 70;
       
@@ -13,9 +11,10 @@ class bin {
     }
     display(){
       var pos =this.body.position;
-  
+       
+      push();
       rectMode(CENTER);
-      fill(red);
+      fill("red");
       strokeWeight(4)
         stroke("red")
       rect(0, 0, this.width, this.height);

@@ -1,5 +1,6 @@
 var ball;
 var bopa1,bopa2,bopa3;
+var ground;
 
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -17,7 +18,9 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	ball = new Trash(700,650);
+	ground = createSprite(400,790,800,20)
+
+	ball = new Trash(700,650,20);
 
 	bopa1 = new bin(500,400);
 	bopa2 = new bin(550,350);
@@ -28,16 +31,15 @@ function setup() {
 }	
 
 function draw() {
-  background(0);
-  engine.update(engine);
+  background(255);
+
+  //engine.update(engine);
 
   ball.display();
 
   bopa1.display();
   bopa2.display();
   bopa3.display();
-  
-  drawSprites();
  
 }
 
