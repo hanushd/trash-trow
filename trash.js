@@ -14,13 +14,11 @@ class Trash {
       World.add(world, this.body);
     }
     display(){
-      var pos =this.body.position;
-      
-    
 
+      var angle = this.body.angle;
       push();
-      translate(pos.x,pos.y)
       ellipseMode(CENTER);
+      rotate(angle)
       fill(255);
       strokeWeight(4)
         stroke("white")

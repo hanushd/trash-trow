@@ -41,6 +41,8 @@ function draw() {
   bopa2.display();
   bopa3.display();
  
+   drawsprites();
+
 }
 
 function keyPressed(){
