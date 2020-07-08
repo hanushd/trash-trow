@@ -1,52 +1,47 @@
-var ball;
-var bopa1,bopa2,bopa3;
-var ground;
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-function preload()
-{
-	
-}
+var dustbin, trashball ,ground1;
+
+var world;
+
 
 function setup() {
-	createCanvas(800, 800);
+	createCanvas(1600, 700);
+	rectMode(CENTER);
 
-	engine = Engine.create();
-	world = engine.world;
+    engine = Engine.create();
+    world = engine.world;
 
-	ground = createSprite(400,790,800,20)
+	dustbin = new bin(1200,650);
 
-	ball = new Trash(700,650,20);
+	trashball = new Trash(200,450,40);
 
-	bopa1 = new bin(500,400);
-	bopa2 = new bin(550,350);
-	bopa3 = new bin(400,300);
+	ground1 = new Ground(width/2,670,width,20);  
+	    
+ }
 
-	Engine.run(engine);
-  
-}	
-
-function draw() {
-  background(255);
-
-  //engine.update(engine);
-
-  ball.display();
-
-  bopa1.display();
-  bopa2.display();
-  bopa3.display();
+ function draw() {
+    rectMode(CENTER);
+    background(0);
  
-   drawsprites();
-
+   dustbin.display();
+   trashball.display();
+   ground1.display();
+  
+ 
+  
+  
+ 
 }
 
-function keyPressed(){
-	 if (keyCode === UP_ARROW)
-	 Matter.Body.applyForce(ball.body,ball.body.position,{x:85,y:-85 });
-	}
+function keyPressed() {
+  	if (keyCode === UP_ARROW) {
+
+    	Matter.Body.applyForce(trashball.body,trashball.body.position,{x:85,y:-85});
+    
+  	}
+}
 
